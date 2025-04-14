@@ -1,0 +1,48 @@
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/poppins/600.css';
+@import '@fontsource/poppins/700.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink bg-clip-text text-transparent;
+  }
+
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-lg border border-white/10;
+  }
+
+  .neon-glow {
+    @apply relative;
+  }
+
+  .neon-glow::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink opacity-0 transition-opacity rounded-lg -z-10;
+  }
+
+  .neon-glow:hover::before {
+    @apply opacity-20;
+  }
+}
+
+.animate-gradient-text {
+  background-size: 200% auto;
+  animation: gradient 4s linear infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
